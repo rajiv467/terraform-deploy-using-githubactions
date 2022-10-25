@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+#     Password:
+#         Type: String
+#         default: India@1234
+Resources:
+  MyChefServer:
+    Type: AWS::OpsWorksCM::Server
+    Properties:
+      BackupRetentionCount: '12'
+      DisableAutomatedBackup: False
+      Engine: 'ChefAutomate'
+      EngineVersion: '2'
+      EngineAttributes:
+           - Name: "CHEF_AUTOMATE_ADMIN_PASSWORD"
+             Value: India@1234
+#                 Ref: Password
+      EngineModel: 'Single'
+      InstanceProfileArn: "arn:aws:iam::131618357176:instance-profile/aws-opsworks-cm-ec2-role"
+      InstanceType: 'r5.xlarge'
+      PreferredBackupWindow: '08:00'
+      PreferredMaintenanceWindow: 'Fri:08:00'
+      ServiceRoleArn: "arn:aws:iam::131618357176:role/service-role/aws-opsworks-cm-service-role"
+      Tags:
+          - Key: "Stage"
+            Value: "Production"
+          - Key: "Name"
+            Value: "test-owcm-server"
+Outputs:
+  endpoint:
+    Description: OpsWorksCM Server Endpoint
+    Value: !GetAtt [MyChefServer, Endpoint]
