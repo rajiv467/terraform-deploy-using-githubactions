@@ -1,9 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
-    PivotalKey:
-        Type: String
     Password:
         Type: String
+        default: India@1234
 Resources:
   MyChefServer:
     Type: AWS::OpsWorksCM::Server
@@ -13,9 +12,6 @@ Resources:
       Engine: 'ChefAutomate'
       EngineVersion: '2'
       EngineAttributes:
-           - Name: "CHEF_AUTOMATE_PIVOTAL_KEY"
-             Value:
-                Ref: PivotalKey
            - Name: "CHEF_AUTOMATE_ADMIN_PASSWORD"
              Value:
                 Ref: Password
