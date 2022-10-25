@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
-    Password:
-        Type: String
-        default: India@1234
+#     Password:
+#         Type: String
+#         default: India@1234
 Resources:
   MyChefServer:
     Type: AWS::OpsWorksCM::Server
@@ -13,8 +13,8 @@ Resources:
       EngineVersion: '2'
       EngineAttributes:
            - Name: "CHEF_AUTOMATE_ADMIN_PASSWORD"
-             Value:
-                Ref: Password
+             Value: India@1234
+#                 Ref: Password
       EngineModel: 'Single'
       InstanceProfileArn: "arn:aws:iam::131618357176:instance-profile/aws-opsworks-cm-ec2-role"
       InstanceType: 'r5.xlarge'
