@@ -9,25 +9,22 @@ Resources:
     Type: AWS::OpsWorksCM::Server
     Properties:
       BackupRetentionCount: '12'
-      CustomCertificate: '-----BEGIN CERTIFICATE----- EXAMPLEqEXAMPLE== -----END CERTIFICATE-----'
-      CustomDomain: 'https://aws.my-company.com'
-      CustomPrivateKey: '-----BEGIN RSA PRIVATE KEY----- EXAMPLEqEXAMPLE= -----END RSA PRIVATE KEY-----'
       DisableAutomatedBackup: False
       Engine: 'ChefAutomate'
       EngineVersion: '2'
       EngineAttributes:
-          - Name: "CHEF_AUTOMATE_PIVOTAL_KEY"
-            Value:
+           - Name: "CHEF_AUTOMATE_PIVOTAL_KEY"
+             Value:
                 Ref: PivotalKey
-          - Name: "CHEF_AUTOMATE_ADMIN_PASSWORD"
-            Value:
+           - Name: "CHEF_AUTOMATE_ADMIN_PASSWORD"
+             Value:
                 Ref: Password
       EngineModel: 'Single'
-      InstanceProfileArn: "INSTANCE-PROFILE-ARN"
+      InstanceProfileArn: "arn:aws:iam::131618357176:instance-profile/aws-opsworks-cm-ec2-role"
       InstanceType: 'r5.xlarge'
       PreferredBackupWindow: '08:00'
       PreferredMaintenanceWindow: 'Fri:08:00'
-      ServiceRoleArn: "SERVICE-ROLE-ARN"
+      ServiceRoleArn: "arn:aws:iam::131618357176:role/service-role/aws-opsworks-cm-service-role"
       Tags:
           - Key: "Stage"
             Value: "Production"
