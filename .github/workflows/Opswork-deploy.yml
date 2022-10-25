@@ -22,6 +22,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   Opswork:
+    name: Opswork-Build
     runs-on: ubuntu-latest
     - name: Checkout
       uses: actions/checkout@v2
