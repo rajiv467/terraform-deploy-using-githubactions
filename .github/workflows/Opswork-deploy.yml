@@ -39,4 +39,4 @@ jobs:
   with:
     name: MyStack
     template: opsworkscm-server.yaml
-    parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"
+#     parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"
